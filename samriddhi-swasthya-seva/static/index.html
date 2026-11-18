@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samriddhi Swasthya Seva - Health Service For Every Family</title>
+
+  <!-- favicon-->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!--css-->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  
+
+  <!-- google font link-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+  .popup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background: linear-gradient(135deg, #ffffff, #c9efd6);
+      color: #0d3b22;
+      font-size: 16px;
+      z-index: 9999;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    </style>
+  <script>
+    // Function to display the popup message
+    function showPopup(message) {
+      const popup = document.createElement("div");
+      popup.className = "popup";
+      popup.textContent = message;
+      document.body.appendChild(popup);
+
+      // Automatically close the popup after 3 seconds
+      setTimeout(function () {
+        popup.remove();
+      }, 3000);
+    }
+  </script>
+</head>
+
+<body id="top" data-page="home">
+  <!-- HEADER-->
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <ul class="contact-list">
+          <li class="contact-item">
+            <ion-icon name="mail-outline"></ion-icon>
+            <a href="mailto:sourabhtiwari9123@gmail.com" class="contact-link">sourabhtiwari9123@gmail.com</a>
+          </li>
+          <li class="contact-item">
+            <ion-icon name="call-outline"></ion-icon>
+            <a href="tel:+919123415571" class="contact-link">+91-9123415571</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-bottom" data-header>
+      <div class="container">
+        <a href="index.html" class="logo">Samriddhi Swasthya Seva</a>
+        <nav class="navbar container" data-navbar>
+          <ul class="navbar-list">
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+            </li>
+            <li>
+              <a href="donors.html" class="navbar-link" data-nav-link>Find donor</a>
+            </li>
+            <li>
+              <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+            </li>
+            <li>
+              <a href="index.html#initiatives" class="navbar-link" data-nav-link>Initiatives</a>
+            </li>
+            <li>
+              <a href="contact.html" class="navbar-link" data-nav-link>Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="login.html" class="btn" data-auth-btn>Login / Register</a>
+        <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+          <ion-icon name="menu-sharp" aria-hidden="true" class="menu-icon"></ion-icon>
+          <ion-icon name="close-sharp" aria-hidden="true" class="close-icon"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!--HERO-->
+      <section class="section hero" id="home" style="background-image: url('./assets/images/hero-bg.png')"
+        aria-label="hero">
+        <div class="container">
+          <div class="hero-content">
+            <img src="assets/images/blood-icon.png" alt="Samriddhi Swasthya Seva icon" width="70" height="70">
+            <p class="section-subtitle">Welcome To Samriddhi Swasthya Seva</p>
+            <h1 class="h1 hero-title">Caring For Every Family's Health...</h1>
+            <p class="hero-text">
+              Samriddhi Swasthya Seva is a community health service built on one simple idea: no one should struggle
+              to find help in a medical emergency. We connect people in need with willing blood donors, ambulance
+              support and trusted health guidance, quickly and with compassion.
+            </p>
+            <form class="hero-form" id="response-form">
+              <input type="email" name="email" aria-label="email" placeholder="Your Email Address..." required
+                class="email-field">
+              <button type="submit" class="btn">Get Response Back</button>
+            </form>
+          </div>
+          <figure class="hero-banner">
+            <img src="./assets/images/hero-banner.png" width="587" height="839" alt="Samriddhi Swasthya Seva doctor" class="w-100">
+          </figure>
+        </div>
+      </section>
+
+      <!--FIND DONOR-->
+      <section class="section service" id="service" aria-label="service">
+        <div class="container">
+          <p class="section-subtitle text-center">Help is closer than you think</p>
+          <h2 class="h2 section-title text-center">FIND A BLOOD DONOR</h2>
+          <form class="donor-form" id="home-search" action="donors.html" method="GET">
+            <div class="form-group">
+              <label for="blood_group">Blood Group:</label>
+              <select id="blood_group" name="blood_group">
+                <option value="">Any</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="state">State:</label>
+              <input type="text" id="state" name="state" placeholder="e.g. Kerala">
+            </div>
+            <div class="form-group">
+              <label for="district">District:</label>
+              <input type="text" id="district" name="district" placeholder="e.g. Kottayam">
+            </div>
+            <button type="submit" class="btn">Find Donor</button>
+          </form>
+        </div>
+      </section>
+
+      <!--ABOUT-->
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+          <figure class="about-banner">
+            <img src="./assets/images/about-banner.png" width="470" height="538" loading="lazy" alt="Caring for health"
+              class="w-100">
+          </figure>
+          <div class="about-content">
+            <p class="section-subtitle">About Us</p>
+            <h2 class="h2 section-title">Health Is The Foundation Of Prosperity</h2>
+            <p class="section-text section-text-1">
+              The word "Samriddhi" stands for prosperity and "Swasthya Seva" for health service. Together they
+              describe our purpose: a healthy family is a prosperous family. We work to make essential health
+              support simple to reach for everyone, especially when time matters most.
+            </p>
+            <p class="section-text">
+              Our volunteers, donors and partners are united by empathy and service. Whether you want to donate
+              blood, need a donor for a loved one, or are looking for reliable health information, we are here to
+              guide you every step of the way.
+            </p>
+            <a href="about.html" class="btn">Read more About Us</a>
+          </div>
+        </div>
+      </section>
+
+      <!--SERVICES-->
+      <section class="section doctor" aria-label="services">
+        <div class="container">
+          <p class="section-subtitle text-center">Here When You Need Us</p>
+          <h2 class="h2 section-title text-center">Our Health Services</h2>
+          <ul class="has-scrollbar">
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="./assets/images/doctor-1.png" width="460" height="500" loading="lazy" alt="Pre-book blood" class="img-cover">
+                </div>
+                <h3 class="h3"><a href="contact.html" class="card-title">Pre-Book Blood</a></h3>
+                <p class="card-subtitle">Plan ahead for surgery or treatment by reserving blood for a set date</p>
+              </div>
+            </li>
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="./assets/images/doctor-2.png" width="460" height="500" loading="lazy" alt="Ambulance support" class="img-cover">
+                </div>
+                <h3 class="h3"><a href="contact.html" class="card-title">Ambulance Support</a></h3>
+                <p class="card-subtitle">Reach our team quickly to arrange emergency patient transport</p>
+              </div>
+            </li>
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="./assets/images/doctor-3.png" width="460" height="500" loading="lazy" alt="Why donate blood" class="img-cover">
+                </div>
+                <h3 class="h3"><a href="whydonate.html" class="card-title">Why Donate Blood?</a></h3>
+                <p class="card-subtitle">Learn how one donation can save up to three lives</p>
+              </div>
+            </li>
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="./assets/images/doctor-4.png" width="800" height="801" loading="lazy" alt="Can you donate" class="img-cover">
+                </div>
+                <h3 class="h3"><a href="canyoudonate.html" class="card-title">Can You Donate?</a></h3>
+                <p class="card-subtitle">Check quickly whether you are eligible to give blood</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--CTA-->
+      <section class="section cta" aria-label="cta">
+        <div class="container">
+          <figure class="cta-banner">
+            <img src="./assets/images/cta-banner.png" width="1056" height="1076" loading="lazy" alt="Join our health mission"
+              class="w-100">
+          </figure>
+          <div class="cta-content">
+            <p class="section-subtitle">Be Part Of The Mission</p>
+            <h2 class="h2 section-title">Join Us In Making Communities Healthier</h2>
+            <a href="register.html" class="btn">Become A Donor</a>
+          </div>
+        </div>
+      </section>
+
+      <!--INITIATIVES-->
+      <section class="section blog" id="initiatives" aria-label="initiatives">
+        <div class="container">
+          <p class="section-subtitle text-center">What We Do</p>
+          <h2 class="h2 section-title text-center">Our Initiatives</h2>
+          <ul class="blog-list">
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
+                  <img src="./assets/images/blog-1.jpg" width="1180" height="800" loading="lazy" alt="Health camps" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><a href="about.html" class="card-title">Community Health Camps</a></h3>
+                  <p class="card-text">
+                    We bring basic health check-ups and awareness sessions closer to people, helping families spot
+                    problems early and know where to turn for care.
+                  </p>
+                  <a href="about.html" class="card-link">Learn More</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
+                  <img src="./assets/images/blog-2.jpg" width="1180" height="800" loading="lazy" alt="Blood donation" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><a href="donors.html" class="card-title">Voluntary Blood Donation</a></h3>
+                  <p class="card-text">
+                    A growing network of volunteer donors lets patients and families find the right blood group
+                    in their own district, when every minute counts.
+                  </p>
+                  <a href="donors.html" class="card-link">Find A Donor</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
+                  <img src="./assets/images/blog-3.jpg" width="1180" height="800" loading="lazy" alt="Emergency support" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><a href="contact.html" class="card-title">Emergency Care Support</a></h3>
+                  <p class="card-text">
+                    From arranging an ambulance to guiding you toward the right hospital or donor, our team
+                    is just a call away in an emergency.
+                  </p>
+                  <a href="contact.html" class="card-link">Contact Us</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+
+
+  <!--FOOTER-->
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Samriddhi Swasthya Seva</a>
+          <p class="footer-text">
+            Samriddhi Swasthya Seva is a community health service connecting people with blood donors,
+            ambulance support and trusted health guidance. Because a healthy family is a prosperous family.
+          </p>
+          <div class="schedule">
+            <div class="schedule-icon">
+              <ion-icon name="time-outline"></ion-icon>
+            </div>
+            <span class="span">
+              24 X 7:<br>
+              365 Days
+            </span>
+          </div>
+        </div>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Other Links</p>
+          </li>
+          <li>
+            <a href="index.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="donors.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Find donor</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">About us</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#initiatives" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Initiatives</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Login / Register</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Our Services</p>
+          </li>
+          <li>
+            <a href="donors.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Blood Donor Network</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Pre-Book Blood</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Ambulance Support</span>
+            </a>
+          </li>
+          <li>
+            <a href="whydonate.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Health Awareness</span>
+            </a>
+          </li>
+          <li>
+            <a href="canyoudonate.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Donation Eligibility Check</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+              <span class="span">Emergency Helpline</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Contact Us</p>
+          </li>
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <a href="https://goo.gl/maps/BYA5MxQUg5B8ZFLcA">
+            <address class="item-text">
+              Near Thaluk Headquarters,<br>
+              Vaikom, Kottayam, Kerala IN
+            </address>
+          </a>
+          </li>
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+            <a href="tel:+917558951351" class="footer-link">+91-9123415571</a>
+          </li>
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <a href="mailto:sourabhtiwari9123@gmail.com" class="footer-link">sourabhtiwari9123@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2026 All Rights Reserved by Samriddhi Swasthya Seva
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!--BACK TO TOP-->
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!--custom js link-->
+  <script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/app.js" defer></script>
+  <!--ionicon link-->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
