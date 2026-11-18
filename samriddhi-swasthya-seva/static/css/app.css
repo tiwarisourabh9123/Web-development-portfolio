@@ -1,0 +1,124 @@
+/* Samriddhi Swasthya Seva – theme tweaks + components for the API-driven pages */
+
+:root {
+  --green: #15803d;
+  --green-dark: #0f5132;
+  --green-light: #22a05a;
+  --ink: #0d3b22;          /* headings */
+  --text: #2b4a37;         /* body text */
+  --blush: #effaf3;
+  --card-radius: 14px;
+}
+
+body { color: var(--text); background: #f8fffa; }
+h1, h2, h3, h4, .h1, .h2, .h3, .card-title { color: var(--ink); }
+a { transition: color .25s ease; }
+::selection { background: var(--green); color: #fff; }
+
+/* buttons: green gradient gradient, soft lift on hover */
+.btn {
+  background-image: linear-gradient(90deg, var(--green), var(--green-light));
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(21, 128, 61, .28);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(21, 128, 61, .38); }
+/* buttons inside the new panels: auto width (base css makes button.btn full-width) */
+.panel button.btn { display: inline-block; width: auto; padding: 14px 32px; border-radius: 50px; background-color: transparent; }
+.panel button.btn:hover { background-color: transparent; }
+.panel button.btn-outline { background-image: none; color: var(--green); border: 2px solid var(--green); box-shadow: none; padding: 12px 30px; }
+.panel button.btn-outline:hover { background-image: none; background-color: var(--green); color: #fff; }
+.panel button.btn-danger { background-image: none; background-color: #5a0a1a; }
+.panel button.btn-danger:hover { background-color: #0d3b22; }
+.panel button.btn-sm { padding: 6px 16px; font-size: 1.3rem; }
+.panel button.btn-outline.btn-sm { padding: 4px 14px; }
+
+/* header polish */
+.header-top { background: linear-gradient(90deg, var(--ink), var(--green-dark)); }
+.header-bottom.active { box-shadow: 0 6px 24px rgba(13, 59, 34, .12); }
+
+/* cards get rounder + softer shadows */
+.card, .service-card, .blog-card, .donor-form { border-radius: var(--card-radius); }
+.donor-form { box-shadow: 0 14px 40px rgba(21, 128, 61, .10); background: #fff; }
+
+/* ---------- forms ---------- */
+.auth-wrap { max-width: 880px; margin: 0 auto; }
+.panel {
+  background: #fff; border-radius: var(--card-radius); padding: 32px;
+  box-shadow: 0 14px 40px rgba(13, 59, 34, .10); margin-bottom: 28px;
+}
+.panel h2 { font-family: var(--ff-poppins); font-size: 2.6rem; margin-bottom: 18px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 20px; }
+.field label { display: block; font-weight: 600; font-size: 1.3rem; margin-bottom: 6px; color: var(--ink); text-transform: uppercase; letter-spacing: .4px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 11px 14px; border: 1.5px solid #cfe6d7; border-radius: 10px;
+  font: inherit; color: var(--text); background: #fff; transition: border-color .2s, box-shadow .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(21, 128, 61, .15);
+}
+.field input:disabled { background: var(--blush); color: #5f7f6b; }
+.field.full { grid-column: 1 / -1; }
+.check { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
+.check input { width: 18px; height: 18px; accent-color: var(--green); }
+.form-actions { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.muted { color: #5f7f6b; font-size: 1.4rem; }
+.link { color: var(--green); font-weight: 600; }
+.link:hover { color: var(--green-light); }
+.page-hero { padding: 170px 0 70px; background: linear-gradient(180deg, var(--blush), #f8fffa); text-align: center; }
+.page-hero h1 { font-size: 4.2rem; font-family: var(--ff-poppins); }
+.page-hero p { margin-top: 8px; color: var(--text); }
+
+/* ---------- donor cards ---------- */
+.donor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; margin-top: 28px; }
+.donor-card {
+  background: #fff; border-radius: var(--card-radius); padding: 22px; position: relative;
+  box-shadow: 0 10px 30px rgba(13, 59, 34, .08); border-top: 4px solid var(--green);
+  transition: transform .2s ease;
+}
+.donor-card:hover { transform: translateY(-4px); }
+.donor-card h3 { font-family: var(--ff-poppins); font-size: 1.9rem; margin-bottom: 6px; padding-right: 64px; }
+.donor-card p { font-size: 1.4rem; margin-top: 4px; }
+.blood-badge {
+  position: absolute; top: 16px; right: 16px; width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800; color: #fff; font-family: var(--ff-poppins);
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+}
+.search-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: end; }
+
+/* ---------- dashboard ---------- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 28px; }
+.stat { background: #fff; border-radius: var(--card-radius); padding: 22px; text-align: center; box-shadow: 0 10px 30px rgba(13, 59, 34, .08); }
+.stat b { display: block; font-size: 3.4rem; font-family: var(--ff-poppins); color: var(--green); }
+.table-wrap { overflow-x: auto; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 1.4rem; }
+.tbl th { text-align: left; padding: 10px 12px; background: var(--blush); color: var(--ink); }
+.tbl td { padding: 10px 12px; border-bottom: 1px solid #dcefe2; }
+.tbl .row-actions { display: flex; gap: 8px; }
+.danger-zone { border: 1.5px dashed #b42318; }
+
+/* ---------- toast ---------- */
+#toast {
+  position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 30px); opacity: 0;
+  padding: 14px 24px; border-radius: 50px; color: #fff; font-weight: 600; z-index: 9999;
+  background: #1f7a4d; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); transition: all .3s ease; pointer-events: none;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+#toast.error { background: #b42318; }
+
+@media (max-width: 768px) {
+  .grid-2, .search-bar, .stats { grid-template-columns: 1fr; }
+  .panel { padding: 22px; }
+  .page-hero { padding: 140px 0 50px; }
+  .page-hero h1 { font-size: 3.2rem; }
+}
+
+[hidden], .panel button[hidden] { display: none !important; }
+
+/* brand name is longer now: scale the logo + center single-item bars */
+.logo { font-size: 2.2rem; line-height: 1.15; }
+@media (min-width: 768px) { .logo { font-size: 2.4rem; } }
+@media (min-width: 1200px) { .logo { font-size: 2.6rem; } }
+.footer-bottom .container, .header-top .container { justify-content: center !important; }
+.navbar-link, .header-bottom .btn { white-space: nowrap; }
+@media (min-width: 1200px) { .logo { font-size: 2.2rem; max-width: 230px; } }
